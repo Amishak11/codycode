@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Website - Home</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif; /* Changed font to Times New Roman */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Changed to flex-start to position content */
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
+            background-color: #87CEEB; /* Changed to sky blue */
+            margin: 0;
+        }
+        /* Header Styles */
+        .header {
+            width: 100%;
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            text-align: center;
+            padding: 20px 0;
+            border-bottom-left-radius: 50px; /* Rounded corners */
+            border-bottom-right-radius: 50px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+        h1 {
+            margin: 0; /* Remove default margin */
+            font-size: 2.5em; /* Increase font size */
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #003366; /* Changed text color to dark blue */
+        }
+        /* Navigation Bar Styles */
+        .navbar {
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: center; /* Center items */
+            background-color: #0056b3; /* Darker blue for navbar */
+            padding: 10px 0; /* Padding for navbar */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            margin: 20px 0; /* Margin for spacing */
+            width: 100%; /* Full width */
+        }
+        .navbar button {
+            margin: 0 15px; /* Horizontal spacing between buttons */
+            padding: 12px 20px;  /* Increased padding */
+            font-size: 16px;     /* Font size */
+            border: none;
+            border-radius: 8px;  /* More rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; /* Added transform transition */
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+        }
+        .navbar button:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .image-container {
+            width: 100%; /* Full width */
+            max-width: 600px; /* Maximum width for the image */
+            margin: 20px 0; /* Margin for spacing */
+            overflow: hidden; /* Hide overflow */
+        }
+        .image-container img {
+            width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+        }
+        /* Circle styles */
+        .circle {
+            width: 20px; /* Circle diameter */
+            height: 20px; /* Circle diameter */
+            border-radius: 50%; /* Make it round */
+            background-color: red; /* Initial color red */
+            margin-left: 10px; /* Spacing between button and circle */
+            display: inline-block; /* Keep it inline with button */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to the Women's Safety Resource Center</h1>
+    </div>
+    
+    <p>Your safety is our priority. Here you can find essential safety tips, report incidents, and access emergency services.</p>
+
+    <div class="navbar">
+        <button onclick="window.location.href='safety-tips.html'">Show Safety Tips</button>
+        <button onclick="window.location.href='report-incident.html'">Report Incident</button>
+        <button onclick="window.location.href='report-fir.html'">Report FIR</button>
+        <button onclick="window.location.href='free-call.html'">Free Call</button>
+        <button onclick="window.location.href='other-options.html'">Other</button>
+        <button id="helpButton" onclick="submitReport()">Help</button>
+        <span class="circle" id="statusCircle"></span> <!-- Circle beside Help button -->
+    </div>
+
+    <div class="image-container">
+        <img id="safetyImage" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPi-g83L8bBSgQp6raZ6pwJPD7P1-MGMuRNg&s" alt="Women's Safety Image">
+    </div>
+
+    <script>
+        const images = [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa_A1nYoNmd8Vit77Dfw6rIzs6ZTDPggrXqw&s', // Woman Empowerment
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH8geYIgL-pXhkh8SYwjVTtdo_rtvvAkF60Q&s', // Awareness Poster
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdaBc5h1EHxZixNLCsC16QG1Tl9hnI2XooVw&s', // Women's March
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-mPV7i_dxZuezLlcn-x5LLv8HzmYtIzz8YQ&s'  // Support Group
+        ];
+
+        let currentIndex = 0;
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Cycle through images
+            document.getElementById('safetyImage').src = images[currentIndex]; // Update image source
+        }
+
+        setInterval(changeImage, 2000); // Change image every 2 seconds
+
+        function submitReport() {
+            alert("Your report has been submitted.");
+            document.getElementById('helpButton').style.backgroundColor = "#28a745"; // Change button color to green
+            document.getElementById('statusCircle').style.backgroundColor = "green"; // Change circle color to green
+        }
+    </script>
+
+</body>
+</html>

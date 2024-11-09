@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ecf0f3;
+    }
+    
+
+    #container {
+        /* border: 2px solid red; */
+        width: 480px;
+        border-radius: 20px;
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #logo img {
+        width: 90px;
+        height: 80px;
+    }
+
+    #logo {
+        margin: 0.5rem auto;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    #container textarea {
+        resize: none;
+        height: 250px;
+        width: 85%;
+        margin: auto;
+        padding: 7px;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    }
+
+    #box {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0.5rem 0rem;
+    }
+
+    #name label {
+        display: block;
+    }
+
+    #name input {
+        margin-top: 0.2rem;
+        padding: 4px;
+        box-shadow: inset 3px 3px 3px #cbced1, inset -3px -3px 3px white;
+        border: none;
+        outline: none;
+        background: none;
+        border-radius: 5px;
+    }
+
+    #type label {
+        display: block;
+    }
+
+    #type select {
+        margin-top: 0.2rem;
+        padding: 4px;
+        box-shadow: inset 3px 3px 3px #cbced1, inset -3px -3px 3px white;
+        border: none;
+        outline: none;
+        background: none;
+        border-radius: 5px;
+    }
+
+    #btn {
+        height: 2rem;
+        width: 40%;
+        border-radius: 7px;
+        margin: 1rem auto;
+        background: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 5px 5px 5px #cbced1, -3px -3px 5px white;
+        font-size: 20px;
+        transition: 0.2s all;
+        pointer-events: none;
+
+    }
+
+    #btn:hover {
+        transform: scale(0.97);
+    }
+
+    #container textarea:valid~#btn {
+        pointer-events: auto;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <div id="logo">
+            <img src="https://png.pngtree.com/element_our/20200702/ourmid/pngtree-file-icon-image_2292647.jpg">
+        </div>
+        <textarea required placeholder="write something here"></textarea>
+        <div id="box">
+            <div id="name">
+                <label for="fileName">File Name</label>
+                <input type="text" id="fileName">
+            </div>
+            <div id="type">
+                <label for="saveAs">Save As</label>
+                <select id="saveAs" >
+                    <option value="text/plain">Text</option>
+                    <option value="text/html">Html</option>
+                    <option value="text/javascript">Js</option>
+                    <option value="application/msword">Doc</option>
+                </select>
+            </div>
+        </div>
+        <button id="btn">SAVE</button>
+    </div>
+    <script>
+        let data = document.querySelector("textarea");
+        let name = document.getElementById("fileName");
+        let type = document.getElementById("saveAs");
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", () => {
+            let blob = new Blob([data.value], { type: type.value });
+            let url = URL.createObjectURL(blob);
+            let link = document.createElement("a");
+            link.download = name.value;
+            link.href = url;
+            link.click()
+        });
+    </script>
+</body>
+
+</html>

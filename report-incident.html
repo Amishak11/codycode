@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Incident</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #d4edda; /* Light green background */
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+            min-height: 100vh; /* Full height */
+            margin: 0; /* Remove default margin */
+        }
+        .container {
+            background-color: white; /* White background for content */
+            padding: 30px; /* Padding around content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            max-width: 600px; /* Maximum width for the container */
+            width: 100%; /* Full width up to max-width */
+        }
+        h1 {
+            color: #343a40; /* Dark gray for heading */
+            text-align: center; /* Center align heading */
+            margin-bottom: 20px; /* Space below heading */
+        }
+        p {
+            color: #495057; /* Medium gray for paragraph text */
+            text-align: center; /* Center align paragraph */
+            margin-bottom: 20px; /* Space below paragraph */
+        }
+        label {
+            display: block; /* Block display for label */
+            margin-bottom: 10px; /* Space below label */
+            font-weight: bold; /* Bold text for label */
+            color: #343a40; /* Dark gray for label */
+        }
+        textarea {
+            width: 100%; /* Full width for textarea */
+            padding: 10px; /* Padding inside textarea */
+            border: 1px solid #ced4da; /* Light gray border */
+            border-radius: 5px; /* Rounded corners */
+            resize: vertical; /* Allow vertical resizing */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow */
+        }
+        input[type="submit"] {
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding inside button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin-top: 20px; /* Space above button */
+            display: block; /* Block display for button */
+            width: 100%; /* Full width for button */
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+        a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Report an Incident</h1>
+        <p>If you have experienced or witnessed an incident, please fill out the form below to report it.</p>
+        <form id="incidentForm" onsubmit="return submitIncident();">
+            <label for="description">Incident Description:</label>
+            <textarea id="description" rows="4" required></textarea>
+            <input type="submit" value="Submit Report">
+        </form>
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        function submitIncident() {
+            // Show alert message
+            alert("Your incident has been successfully uploaded.");
+            // Prevent form submission for demonstration (you can send data to a server here)
+            return false; // Prevent actual form submission
+        }
+    </script>
+
+</body>
+</html>
